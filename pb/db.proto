@@ -1,0 +1,11 @@
+syntax = "proto3";
+package protoc;
+option go_package = "./pb";
+
+message DBRankItem {
+  string key = 1;
+  uint64 score = 2;
+  uint64 then = 3;
+}
+
+

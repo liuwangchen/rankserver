@@ -1,0 +1,15 @@
+common:
+  namespace: $NAMESPACE
+  pprof: :0
+  etcd: localhost:2379
+  nats: localhost:4222
+  redis: localhost:6379
+
+dynamic:
+  server_id: rankserver_1
+  type_range:
+    - 1
+    - 10
+
+static:
+  web: :8080

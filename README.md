@@ -17,7 +17,7 @@
 
 ## 入口
 
-main.go启动 -> 基于nats注册service.go实现类 -> 协议进来调用logic包内排行榜逻辑逻辑
+main.go启动 -> 基于nats注册service.go实现类 -> 协议进来调用logic包内排行榜逻辑
 
 ## 协议
 

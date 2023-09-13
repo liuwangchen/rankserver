@@ -22,6 +22,7 @@ main.go启动 -> 基于nats注册service.go实现类 -> 协议进来调用logic�
 ## 协议
 
 ```
+
 // 排行榜返回item
 message RankItem {
   string id = 1; // 各种id：玩家id，联盟id，服务器id等等
@@ -90,4 +91,55 @@ service RankServer {
   rpc DeleteRankMems (ReqDeleteRankMems) returns (CommonRsp) {}
 }
 
+```
+
+## 测试
+
+```http
+
+###
+POST http://localhost:8080/rankserver.RankServer/GetRank?name=get HTTP/1.1
+Content-Type: application/json
+
+{
+  "rankType" : 1,
+  "beginRank" : 1,
+  "count" : 10
+}
+
+###
+POST http://localhost:8080/rankserver.RankServer/GetRankByOffset?name=get HTTP/1.1
+Content-Type: application/json
+
+{
+  "rankType" : 1,
+  "me" : "456",
+  "offset" : 10
+}
+
+
+###
+POST http://localhost:8080/rankserver.RankServer/UpdateRank?name=update HTTP/1.1
+Content-Type: application/json
+
+{
+  "rankType" : 1,
+  "rankData" : {
+      "123":{
+          "score":1234
+      },
+      "456":{
+          "score":456
+      }
+  }
+}
+
+###
+POST http://localhost:8080/rankserver.RankServer/DeleteRankMems?name=del HTTP/1.1
+Content-Type: application/json
+
+{
+  "rankType" : 1,
+  "mems": ["123","456"]
+}
 ```

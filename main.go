@@ -53,7 +53,7 @@ func initMain() ([]app.Runner, error) {
 	return runners, nil
 }
 
-func runMain() error {
+func run() error {
 	runners, err := initMain()
 	if err != nil {
 		return err
@@ -67,9 +67,6 @@ func runMain() error {
 	return a.Run(context.Background())
 }
 
-func purgeMain() {
-}
-
 func main() {
 	// 初始化配置
 	configPath := flag.String("f", "", "")
@@ -79,8 +76,7 @@ func main() {
 	if err := cfg.Load(*configPath); err != nil {
 		panic(err)
 	}
-	defer purgeMain()
-	err := runMain()
+	err := run()
 	if err != nil {
 		panic(err)
 	}

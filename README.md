@@ -4,7 +4,7 @@
 
 ## 架构图
 
-![img.png](assets/img.png)
+![img.png](asset/img.png)
 
 ## 项目亮点
 

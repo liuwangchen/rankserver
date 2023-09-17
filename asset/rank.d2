@@ -1,0 +1,51 @@
+rankCluster: rankCluster {
+    rankServer1: server1 {
+        zset1 : zset-1 {
+    
+        }
+        zset2 : zset-2 {
+    
+        }
+        zset3 : zset-N {
+    
+        }
+    }
+    rankServer2: server2 {
+        zset1 : zset-1 {
+    
+        }
+        zset2 : zset-2 {
+    
+        }
+        zset3 : zset-N {
+    
+        }
+    }
+    rankServerN: serverN {
+        zset1 : zset-1 {
+    
+        }
+        zset2 : zset-2 {
+    
+        }
+        zset3 : zset-N {
+    
+        }
+    }
+}
+
+microService : microService
+nats: natsServer
+
+redisCluster: redisCluster {
+    redis1: redis1
+    redis2: redis2
+    redis3: redis3
+}
+
+rankCluster -> redisCluster : db
+microService -> rankCluster : http
+microService -> rankCluster : grpc
+microService -> nats -> rankCluster : nats
+
+

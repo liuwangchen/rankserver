@@ -249,3 +249,15 @@ func (this *RankManager) GetRankByOffset(rankType int32, me string, offset int, 
 
 	return this.getRank(rankType, startIndex, endIndex, me, reverse)
 }
+
+// DeleteRank 删除排行榜
+func (this *RankManager) DeleteRank(rankType int32) apipb.RET {
+	rankKey := this.getRankKey(rankType)
+	z := this.ranks[rankKey]
+	if z == nil {
+		return apipb.RET_ERROR
+	}
+	delete(this.ranks, rankKey)
+	components.RedisClient.Del(context.Background(), rankKey)
+	return apipb.RET_OK
+}

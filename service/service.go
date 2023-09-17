@@ -56,3 +56,11 @@ func (this *RankService) GetRankByOffset(ctx context.Context, req *apipb.ReqGetR
 	}
 	return logic.GetRankManagerInstance().GetRankByOffset(req.RankType, req.Me, int(req.Offset), req.Reverse), nil
 }
+
+func (this *RankService) DeleteRank(ctx context.Context, req *apipb.ReqDeleteRankMems) (*apipb.CommonRsp, error) {
+	if !this.checkRankType(req.RankType) {
+		return &apipb.CommonRsp{Code: apipb.RET_RankTypeErr}, nil
+	}
+	code := logic.GetRankManagerInstance().DeleteRank(req.RankType)
+	return &apipb.CommonRsp{Code: code}, nil
+}

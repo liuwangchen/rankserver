@@ -7,5 +7,6 @@ require (
 	github.com/liuwangchen/apis v0.0.0-20230917140603-7a60d1bebcab
 	github.com/liuwangchen/toy v0.0.0-20230913114214-0c2ab61f0a6a
 	github.com/nats-io/nats.go v1.13.0
+	go.etcd.io/etcd/client/v3 v3.5.2
 	google.golang.org/protobuf v1.31.0
 )

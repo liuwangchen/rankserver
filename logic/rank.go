@@ -46,7 +46,7 @@ func (this *RankManager) Init(ctx context.Context) error {
 }
 
 func (this *RankManager) getSaveRankTypeKey() string {
-	return fmt.Sprintf("%s_rankType", config.GetInstance().Dynamic.ServerId)
+	return fmt.Sprintf("%s_rankType", config.GetInstance().Rank.Dynamic.ServerId)
 }
 
 // 加载排行榜数据

@@ -5,11 +5,12 @@ common:
   nats: localhost:4222
   redis: localhost:6379
 
-dynamic:
-  server_id: rankserver_1
-  type_range:
-    - 1
-    - 10
+rank:
+  dynamic:
+    server_id: rankserver_1
+    type_range:
+      - 1
+      - 10
 
-static:
-  web: :8080
+  static:
+    web: :9090

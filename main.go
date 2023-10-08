@@ -11,8 +11,17 @@ import (
 	"github.com/liuwangchen/rankserver/service"
 	"github.com/liuwangchen/toy/app"
 	"github.com/liuwangchen/toy/pkg/singlethread"
+	"github.com/liuwangchen/toy/registry"
 	"github.com/liuwangchen/toy/third_party/redisx"
 	"github.com/nats-io/nats.go"
+	clientv3 "go.etcd.io/etcd/client/v3"
+)
+
+var (
+	serviceName = "rank"
+	hash        = "43b543"
+	serviceId   = "1"
+	namespace   = "test"
 )
 
 func initMain() ([]app.Runner, error) {
@@ -43,7 +52,7 @@ func initMain() ([]app.Runner, error) {
 		RankService: service.NewRankService(),
 		Namespace:   cfg.Common.Namespace,
 		As:          st.Async(),
-		WebAddr:     cfg.Static.Web,
+		WebAddr:     cfg.Rank.Static.Web,
 	})
 	if err != nil {
 		return nil, err
@@ -54,6 +63,10 @@ func initMain() ([]app.Runner, error) {
 }
 
 func run() error {
+	etcdClient, err := clientv3.NewFromURL(config.GetInstance().Common.EtcdAddr)
+	if err != nil {
+		return err
+	}
 	runners, err := initMain()
 	if err != nil {
 		return err
@@ -61,6 +74,10 @@ func run() error {
 	cfg := config.GetInstance()
 	a := app.New(
 		app.WithPProf(cfg.Common.PprofAddr),
+		app.WithID(serviceId),
+		app.WithName(serviceName),
+		app.WithVersion(hash),
+		app.WithRegistrar(registry.NewEtcdRegistry(etcdClient, registry.Namespace(namespace))),
 		app.WithRunners(runners...),
 	)
 

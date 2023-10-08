@@ -41,7 +41,7 @@ func Init(param Param) ([]app.Runner, error) {
 	}
 
 	// 以rankType排行榜类型来注册service
-	rankTypeRange := config.GetInstance().Dynamic.TypeRange
+	rankTypeRange := config.GetInstance().Rank.Dynamic.TypeRange
 	for i := rankTypeRange[0]; i <= rankTypeRange[1]; i++ {
 		err = apipb.RegisterAsyncRankServerNatsServer(natsServerConn, param.As, param.RankService, natsrpc.WithServiceTopic(i))
 		if err != nil {

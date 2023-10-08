@@ -151,11 +151,8 @@ github.com/kr/pretty v0.2.0/go.mod h1:ipq/a2n7PKx3OHsz4KJII5eveXtPO4qwEXGdVfWzfn
 github.com/kr/pty v1.1.1/go.mod h1:pFQYn66WHrOpPYNljwOMqo10TkYh1fy3cYio2l3bCsQ=
 github.com/kr/text v0.1.0 h1:45sCR5RtlFHMR4UwH9sdQ5TC8v0qDQCHnXt+kaKSTVE=
 github.com/kr/text v0.1.0/go.mod h1:4Jbv+DJW3UT/LiOwJeYQe1efqtUx/iVham/4vfdArNI=
-github.com/liuwangchen/apis v0.0.0-20230913114242-7f2325ef8f3b h1:St5dR2NmJ5/BFRY+5NBI0N5w3YOeFQhXPxEaF4QHng0=
-github.com/liuwangchen/apis v0.0.0-20230913114242-7f2325ef8f3b/go.mod h1:9RfU49B0nI5nrmcawX4dtAOOvHEi7vLjiO+rnH7vG1M=
 github.com/liuwangchen/apis v0.0.0-20230917140603-7a60d1bebcab h1:Qo3wpxDQsUz85XO/dhhp/Msb/bxYCu7xYz0zR+2mTxM=
 github.com/liuwangchen/apis v0.0.0-20230917140603-7a60d1bebcab/go.mod h1:RzYbKDAudH11EQQNfkD9VMmlnprfMsi5Wj/3W0VxP/w=
-github.com/liuwangchen/toy v0.0.0-20230913063024-b6a201ebcc9e/go.mod h1:0oJWl1Wcg3B65OS5b3DMWfkOLVfzB4MqYywq9nVpcCk=
 github.com/liuwangchen/toy v0.0.0-20230913114214-0c2ab61f0a6a h1:95TNs/OljCeto/+k7xDitK88w9te4SwbDeesjFXtcw8=
 github.com/liuwangchen/toy v0.0.0-20230913114214-0c2ab61f0a6a/go.mod h1:0oJWl1Wcg3B65OS5b3DMWfkOLVfzB4MqYywq9nVpcCk=
 github.com/matttproud/golang_protobuf_extensions v1.0.1/go.mod h1:D8He9yQNgCq6Z5Ld7szi9bcBfOoFv/3dc6xSMkL2PC0=

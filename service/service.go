@@ -17,7 +17,7 @@ func NewRankService() *RankService {
 
 // 检查rankType合法性
 func (this *RankService) checkRankType(rankType int32) bool {
-	rankTypeRange := config.GetInstance().Dynamic.TypeRange
+	rankTypeRange := config.GetInstance().Rank.Dynamic.TypeRange
 	if rankType >= rankTypeRange[0] && rankType <= rankTypeRange[1] {
 		return true
 	}

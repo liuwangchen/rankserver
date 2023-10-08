@@ -11,6 +11,7 @@ type CommonConfig struct {
 	Namespace string `yaml:"namespace"`
 	RedisAddr string `yaml:"redis"`
 	PprofAddr string `yaml:"pprof"`
+	EtcdAddr  string `yaml:"etcd"`
 }
 
 type DynamicConfig struct {
@@ -23,7 +24,11 @@ type StaticConfig struct {
 }
 
 type Config struct {
-	Common  *CommonConfig  `yaml:"common"`
+	Common *CommonConfig `yaml:"common"`
+	Rank   *RankConfig   `yaml:"rank"`
+}
+
+type RankConfig struct {
 	Dynamic *DynamicConfig `yaml:"dynamic"`
 	Static  *StaticConfig  `yaml:"static"`
 }
